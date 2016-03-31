@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="org.pos2d.webapi.entities.discomtransformer" table="utilitydiscomasset.discomtransformer">
+      <id name="gid">
+      	<generator class="identity" />
+      </id>
+       <property name="assetname" type="string"/>
+       <property name="cityname" type="string"/>
+       <property name="areaname" type="string"/>
+       <property name="xcordinate" type="double"/>
+       <property name="ycordinate" type="double"/>
+       <property name="longitude" type="double"/>
+       <property name="latitude" type="double"/>
+       <property name="alertstatus" type="string"/>
+       <property name="fielddata" type="string"/>
+        
+   </class>
+</hibernate-mapping>
+
+
+
+
+	
+	
+	
+
+  
+ 
+    
+    
+  

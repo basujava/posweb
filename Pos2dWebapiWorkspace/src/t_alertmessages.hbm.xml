@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="org.pos2d.webapi.entities.t_alertmessages" table="utilitydiscomasset.t_alertmessages">
+      <id name="gid">
+      	<generator class="identity" />
+      </id>
+       <property name="fieldmobileid" type="string"/>
+	   <property name="assetname" type="string"/>
+	   <property name="alertkeyvalue" type="string"/>
+	   <property name="alertmessagedesc" type="string"/>
+	   <property name="ts" type="timestamp"/>
+	        
+   </class>
+</hibernate-mapping>
+
+

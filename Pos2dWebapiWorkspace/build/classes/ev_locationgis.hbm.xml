@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="org.pos2d.webapi.entities.ev_locationgis" table="utilitygis.ev_locationgis">
+      <id name="gid">
+      	<generator class="identity" />
+      </id>
+       <property name="regno" type="string"/>
+	   <property name="stateofchargekm" type="double"/>
+	   <property name="xcordinate" type="double"/>
+	   <property name="ycordinate" type="double"/>
+	   <property name="longitude" type="double"/>
+	   <property name="latitude" type="double"/>
+	    <property name="lastlocationts" type="timestamp"/>
+	    <property name="geolocation" type="org.hibernate.spatial.GeometryType"/>
+	        
+   </class>
+</hibernate-mapping>

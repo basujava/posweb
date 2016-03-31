@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="org.pos2d.webapi.entities.cs_statusparams" table="utilityretailcis.cs_statusparams">
+      <id name="gid">
+      	<generator class="identity" />
+      </id>
+       <property name="csname" type="string"/>
+	   <property name="energypricesignal" type="double"/>
+	   <property name="currentcarqueue" type="integer"/>
+	   <property name="ts" type="timestamp"/>
+	        
+   </class>
+</hibernate-mapping>

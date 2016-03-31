@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+   <session-factory>
+        <property name="connection.url">jdbc:postgresql://postgretst.ct5p9rehkn94.us-west-2.rds.amazonaws.com:5432/postgres/postgres</property>
+        <property name="connection.username">TCSBA</property>
+        <property name="connection.password">TCSlab123</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.globally_quoted_identifiers">true</property>
+  <!--        <property name="connection.url">jdbc:postgresql://localhost:5432/pos2d-demo</property>-->
+ <!--         <property name="connection.username">soumik</property>-->
+<!--         <property name=“connection.password">yourpassword</property> -->
+  <!--        <property name="connection.driver_class">org.postgresql.Driver</property>-->
+        <!--  <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>-->
+        <property name="hibernate.dialect">org.hibernate.spatial.dialect.postgis.PostgisDialect</property>
+        <property name="hibernate.dialect">org.hibernate.spatial.dialect.postgis.PostgisDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.globally_quoted_identifiers">false</property>
+        <!-- List of XML mapping files -->
+   		<mapping resource="city.hbm.xml"/>
+   		<mapping resource="urban-area.hbm.xml"/>
+   		<mapping resource="transformer.hbm.xml"/>
+        <mapping resource="t_fieldstatus.hbm.xml"/> 
+        <mapping resource="t_oilmoisturecontent.hbm.xml"/> 
+   		<mapping resource="fieldtrucklocation.hbm.xml"/>
+   	 	<mapping resource="ev_locationgis.hbm.xml"/>
+   		<mapping resource="ev_location.hbm.xml"/>
+   		<mapping resource="t_alertmessages.hbm.xml"/>
+   		<mapping resource="loaddemandprofile.hbm.xml"/>
+   		<mapping resource="industrialload.hbm.xml"/>
+   		<mapping resource="industrialloadgis.hbm.xml"/>
+   		<mapping resource="chargingstation.hbm.xml"/>
+   		<mapping resource="chargingstationgis.hbm.xml"/>
+   		<mapping resource="cs_statusparams.hbm.xml"/>
+   		<mapping resource="maplayout.hbm.xml"/>
+   		<mapping resource="fieldtrucklocationgis.hbm.xml"/>
+   		<mapping resource="discomtransformer.hbm.xml"/>
+   		<mapping resource="t_silicagelcolor.hbm.xml"/>
+   		
+   		
+   		
+     		   		
+   	</session-factory>
+</hibernate-configuration>

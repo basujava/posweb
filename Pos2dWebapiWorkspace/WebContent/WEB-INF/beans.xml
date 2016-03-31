@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.1.xsd">
+    <context:property-placeholder/>
+    <context:annotation-config/>
+    <bean class="org.springframework.web.context.support.ServletContextPropertyPlaceholderConfigurer"/>
+    <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer"/>
+    <!--  -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+	  <property name="driverClassName" value="org.postgresql.Driver" />  
+	  <property name="url" value="jdbc:postgresql://postgretst.ct5p9rehkn94.us-west-2.rds.amazonaws.com:5432/postgres" />  
+	  <property name="username" value="TCSBA" />  
+	  <property name="password" value="TCSlab123" />  
+	</bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
+	  <property name="dataSource" ref="dataSource" />  
+	  <property name="configLocation" value="classpath:hibernate.cfg.xml" /> 
+	</bean>
+	<tx:annotation-driven />
+	<bean id="transactionManager"
+	    class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	    <property name="sessionFactory" ref="sessionFactory" />
+	</bean>    
+    <!-- DAO Beans -->
+    <bean id="cityDAO" class="org.pos2d.webapi.dao.CityDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="t_fieldstatusDAO" class="org.pos2d.webapi.dao.t_fieldstatusDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="t_oilmoisturecontentDAO" class="org.pos2d.webapi.dao.t_oilmoisturecontentDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="urbanAreaDAO" class="org.pos2d.webapi.dao.UrbanAreaDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="xfrDAO" class="org.pos2d.webapi.dao.TransformerDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="vehicleDAO" class="org.pos2d.webapi.dao.VehicleDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="EVlocationgisDAO" class="org.pos2d.webapi.dao.EVlocationgisDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="ev_locationDAO" class="org.pos2d.webapi.dao.ev_locationDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="t_alertmessagesDAO" class="org.pos2d.webapi.dao.t_alertmessagesDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="loaddemandprofileDAO" class="org.pos2d.webapi.dao.loaddemandprofileDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="industrialloadDAO" class="org.pos2d.webapi.dao.industrialloadDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="industrialloadgisDAO" class="org.pos2d.webapi.dao.industrialloadgisDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="chargingstationDAO" class="org.pos2d.webapi.dao.chargingstationDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="chargingstationgisDAO" class="org.pos2d.webapi.dao.chargingstationgisDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="cs_statusparamsDAO" class="org.pos2d.webapi.dao.cs_statusparamsDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	<bean id="maplayoutDAO" class="org.pos2d.webapi.dao.maplayoutDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	
+		<bean id="fieldtrucklocationgisDAO" class="org.pos2d.webapi.dao.fieldtrucklocationgisDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	
+	<bean id="discomtransformerDAO" class="org.pos2d.webapi.dao.discomtransformerDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	
+	<bean id="t_silicagelcolorDAO" class="org.pos2d.webapi.dao.t_silicagelcolorDAOImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	
+	<!-- AMQP and RabbitMQ config -->
+	<rabbit:connection-factory id="connectionFactory" host="localhost" port="5672" username="admin" password="admin"/>
+	<rabbit:template id="rabbitTemplate" connection-factory="connectionFactory" exchange="amq.topic"/>
+	<rabbit:admin connection-factory="connectionFactory" />
+	<rabbit:queue name="trklocation-change-dblogger" />
+	<rabbit:queue name="trklocation-change-webui" />
+	<rabbit:queue name="evlocation-change-dblogger" />
+	<rabbit:queue name="evlocation-change-webui" />
+	<rabbit:queue name="xformer-status-dblogger" />
+	<rabbit:queue name="xformer-status-webui" />
+	<rabbit:queue name="load-change-dblogger" />
+	<rabbit:queue name="load-change-webui" />
+	<rabbit:listener-container connection-factory="connectionFactory">
+    	<rabbit:listener ref="dbLogger" method="SaveEVlocation" queue-names="evlocation-change-dblogger" />
+    	<rabbit:listener ref="dbLogger" method="savet_fieldstatus" queue-names="xformer-status-dblogger" />
+    	<rabbit:listener ref="dbLogger" method="SaveLoadprofile" queue-names="load-change-dblogger" />
+    	<rabbit:listener ref="dbLogger" method="saveTrkLocation" queue-names="trklocation-change-dblogger" />
+    </rabbit:listener-container>
+	<!-- RabbitMQ listener beans -->
+	<bean id="dbLogger" class="org.pos2d.webapi.mq.DbLoggerListener"/>
+	<bean id="proximityDetector" class="org.pos2d.webapi.mq.ProximityListener"/>
+	
+	
+		
+</beans>
