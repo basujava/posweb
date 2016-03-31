@@ -127,7 +127,7 @@
 	</bean>
 	
 	<!-- AMQP and RabbitMQ config -->
-	<rabbit:connection-factory id="connectionFactory" host="localhost" port="5672" username="admin" password="admin"/>
+	<rabbit:connection-factory id="connectionFactory" host="10.0.0.53" port="5672" username="admin" password="admin"/>
 	<rabbit:template id="rabbitTemplate" connection-factory="connectionFactory" exchange="amq.topic"/>
 	<rabbit:admin connection-factory="connectionFactory" />
 	<rabbit:queue name="trklocation-change-dblogger" />
