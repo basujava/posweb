@@ -10,7 +10,7 @@ public class JsonBean {
     }
 
     public void setVal1(String val1) {
-        this.val1 = val1;
+        this.val1 = val1
     }
 
     public String getVal2() {
